@@ -58,8 +58,8 @@ class DashboardView(LoginRequiredMixin, TemplateView):
                 total = Sale.objects.filter(date_joined__year=year, date_joined__month=m).aggregate(
                     r=Coalesce(Sum('total'), 0, output_field=DecimalField())).get('r')
                 data.append(float(total))
-        except Exception as e:
-            print(e)
+        except:
+            pass
         return data
 
     def get_graph_sales_products_year_month(self):
@@ -76,8 +76,8 @@ class DashboardView(LoginRequiredMixin, TemplateView):
                         'name': p.name,
                         'y': float(total)
                     })
-        except Exception as e:
-            print(e)
+        except:
+            pass
         return data
 
     def get_context_data(self, **kwargs):

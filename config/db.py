@@ -16,12 +16,10 @@ POSTGRESQL = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'db',
         'USER': 'postgres',
-        'PASSWORD': 'Chibolin1#',
+        'PASSWORD': '12345',
         'HOST': 'localhost',
         'PORT': '5432',
-        'OPTIONS': {
-            'options': '-c search_path=prueba'
-        },
+        'ATOMIC_REQUESTS': True
     }
 }
 

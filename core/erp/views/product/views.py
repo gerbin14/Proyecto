@@ -31,6 +31,7 @@ class ProductListView(LoginRequiredMixin, ValidatePermissionRequiredMixin, ListV
             else:
                 data['error'] = 'Ha ocurrido un error'
         except Exception as e:
+            #print(e)
             data['error'] = str(e)
         return JsonResponse(data, safe=False)
 

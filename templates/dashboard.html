@@ -29,18 +29,8 @@
         <br>
     </div>
     <script type="application/javascript">
-        var graphcolumn = Highcharts.chart('container', {
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: 'Reporte de ventas del año 2020'
-            },
-            subtitle: {
-                text: 'Reporte de columnas'
-            },
-            xAxis: {
-                categories: [
+        const now = new Date();
+        const meses = [
                     'Enero',
                     'Febrero',
                     'Marzo',
@@ -53,7 +43,20 @@
                     'Octubre',
                     'Noviembre',
                     'Diciembre'
-                ],
+                ];
+
+        var graphcolumn = Highcharts.chart('container', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: `Reporte de ventas del año ${now.getFullYear()}`
+            },
+            subtitle: {
+                text: 'Reporte de columnas'
+            },
+            xAxis: {
+                categories: meses,
                 crosshair: true
             },
             yAxis: {
@@ -86,7 +89,7 @@
                 type: 'pie'
             },
             title: {
-                text: 'Porcentaje de venta de productos por el mes de Junio del año 2020'
+                text: `Porcentaje de venta de productos por el mes de ${meses[now.getMonth()]} del año ${now.getFullYear()}`
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
